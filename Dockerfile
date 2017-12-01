@@ -24,9 +24,6 @@ ARG URL=https://github.com/digitalocean/netbox/archive/$BRANCH.tar.gz
 RUN wget -q -O - "${URL}" | tar xz \
   && mv netbox* netbox
 
-RUN apt-get update -qq && \ 
-    apt-get install -y libldap2-dev libsasl2-dev libssl-dev graphviz && \
-    apt-get clean
 
 WORKDIR /opt/netbox
 RUN pip install -r requirements.txt
